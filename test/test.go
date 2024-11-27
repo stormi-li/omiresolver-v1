@@ -16,7 +16,7 @@ func main() {
 	resolver := omiresolver.NewResolver(&redis.Options{Addr: redisAddr, Password: password}, omiserd.Web)
 	url, err := resolver.Resolve(url.URL{
 		Host: "",
-		Path: "/http8000",
+		Path: "/hello_server",
 	})
 	fmt.Println(err)
 	fmt.Println(url.String())

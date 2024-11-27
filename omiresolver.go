@@ -99,7 +99,7 @@ func NewResolver(opts *redis.Options, nodeType omiserd.NodeType) *Resolver {
 
 func (resolver *Resolver) Resolve(url url.URL) (*url.URL, error) {
 	serverName := strings.Split(url.Path, "/")[1]
-	domainName := strings.Split(url.Host, ":")[0]
+	domainName := url.Host
 	if resolver.router.Has(serverName) {
 		url.Path = strings.TrimPrefix(url.Path, "/"+serverName)
 		url.Host = resolver.router.GetAddress(serverName)
